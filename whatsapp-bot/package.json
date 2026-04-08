@@ -1,0 +1,21 @@
+{
+  "name": "backlog-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp group listener → Academic task extractor for BackLog",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.2.1",
+    "node-fetch": "^2.7.0",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^4.8.3",
+    "whatsapp-web.js": "^1.26.1-alpha.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

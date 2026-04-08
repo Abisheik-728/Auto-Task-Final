@@ -1,0 +1,23 @@
+{
+  "name": "backlog-calendar-server",
+  "version": "1.0.0",
+  "description": "Google Calendar OAuth backend for BackLog app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^1.14.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "googleapis": "^129.0.0",
+    "multer": "^2.1.1",
+    "node-fetch": "^3.3.2",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,35 @@
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   —————————————————————————————————————————        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:             
+remote:       —— Google OAuth Access Token —————————————————————————        
+remote:        locations:        
+remote:          - commit: 81de27aa3b1dd86653986fdfa58222eb3df530db        
+remote:            path: server/tokens.json:3        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/Abisheik-728/Auto-Task-Final/security/secret-scanning/unblock-secret/3C56NT9M14wUmhDqg48zG5BqsMX        
+remote:             
+remote:             
+remote:       —— Google OAuth Refresh Token ————————————————————————        
+remote:        locations:        
+remote:          - commit: 81de27aa3b1dd86653986fdfa58222eb3df530db        
+remote:            path: server/tokens.json:4        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/Abisheik-728/Auto-Task-Final/security/secret-scanning/unblock-secret/3C56NWWQbCAJn9T0CpouZ0ddx4u        
+remote:             
+remote: 
+remote: 
+To https://github.com/Abisheik-728/Auto-Task-Final.git
+ ! [remote rejected] main -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/Abisheik-728/Auto-Task-Final.git'

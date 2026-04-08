@@ -1,0 +1,35 @@
+# Node
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.env
+**/.env
+.wwebjs_auth/
+.wwebjs_auth_v2/
+**/uploads/
+tokens.json
+
+# Maven / Java
+target/
+.maven/
+.mvn/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.DS_Store
+
+# Temporary files
+/tmp/
+log/
+*.log
+run.bat
+
+.vercel
