@@ -17,12 +17,12 @@ const app = express();
 const upload = multer({ dest: "uploads/" });
 
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:8080", credentials: true }));
+app.use(cors({ origin: process.env.VITE_FRONTEND_URL || "*", credentials: true }));
 
 const {
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
-  REDIRECT_URI = "http://localhost:3001/auth/google/callback",
+  REDIRECT_URI = process.env.REDIRECT_URI || "http://localhost:3001/auth/google/callback",
   PORT = 3001,
   BACKEND_URL = "http://localhost:3000", // Spring Boot backend
 } = process.env;
