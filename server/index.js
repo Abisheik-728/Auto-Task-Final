@@ -97,8 +97,9 @@ app.get("/auth/google/url", (req, res) => {
 
 app.get("/auth/google/callback", async (req, res) => {
   const { code, state: userId, error } = req.query;
+  const FRONTEND_URL = process.env.VITE_FRONTEND_URL || "http://localhost:8080";
   if (error || !code) {
-    return res.redirect(`http://localhost:8080/calendar-callback?error=${error || "no_code"}`);
+    return res.redirect(`${FRONTEND_URL}/calendar-callback?error=${error || "no_code"}`);
   }
   try {
     const client = new google.auth.OAuth2(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_URI);
@@ -109,10 +110,10 @@ app.get("/auth/google/callback", async (req, res) => {
     });
     saveTokens(tokenStore); // ← persist to disk immediately
     console.log(`✅ Google connected & saved for user: ${userId}`);
-    res.redirect(`http://localhost:8080/calendar-callback?success=true&userId=${userId}`);
+    res.redirect(`${FRONTEND_URL}/calendar-callback?success=true&userId=${userId}`);
   } catch (err) {
     console.error("❌ Auth callback failed:", err.message);
-    res.redirect(`http://localhost:8080/calendar-callback?error=token_exchange_failed`);
+    res.redirect(`${FRONTEND_URL}/calendar-callback?error=token_exchange_failed`);
   }
 });
 
@@ -435,8 +436,13 @@ app.post("/calendar/sync-task", async (req, res) => {
 });
 
 // =============================================================
-app.listen(PORT, () => {
-  console.log(`\n🚀 Backend Refactored & Live at http://localhost:${PORT}`);
-  console.log(`   Safe Sources: Manual ✅, Gmail ✅, Image OCR ✅`);
-  console.log(`   Unsafe Sources: WhatsApp ❌ REMOVED\n`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Backend Refactored & Live at http://localhost:${PORT}`);
+    console.log(`   Safe Sources: Manual ✅, Gmail ✅, Image OCR ✅`);
+    console.log(`   Unsafe Sources: WhatsApp ❌ REMOVED\n`);
+  });
+}
+
+// Export for Vercel serverless
+module.exports = app;

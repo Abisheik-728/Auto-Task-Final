@@ -3,7 +3,7 @@
 // Talks to the Express backend at http://localhost:3001
 // ============================================================
 
-const BACKEND = "http://localhost:3001";
+const BACKEND = import.meta.env.VITE_CALENDAR_SERVER_URL || "http://localhost:3001";
 
 /** Gets the stored userId from localStorage (set after OAuth). */
 export function getCalendarUserId(): string {
